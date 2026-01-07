@@ -1,0 +1,391 @@
+---
+title: Peter Buchmann - Über mich
+permalink: /index.html
+---
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px 20px 40px 20px;
+        }
+
+        .profile-section {
+            background: white;
+            border-radius: 10px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+
+        .profile-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+            border: 5px solid #f0f0f0;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+
+        .subtitle {
+            font-size: 1.2em;
+            color: #7f8c8d;
+            margin-bottom: 20px;
+        }
+
+        .contact-info {
+            margin-top: 20px;
+            color: #7f8c8d;
+        }
+
+        .contact-info a {
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        .resume-section {
+            background: white;
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .resume-section p {
+            margin-bottom: 15px;
+        }
+
+        h2 {
+            font-size: 1.8em;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+        }
+
+        .experience-item {
+            margin-bottom: 30px;
+        }
+
+        .experience-item h3 {
+            font-size: 1.3em;
+            color: #34495e;
+            margin-bottom: 5px;
+        }
+
+        .experience-meta {
+            color: #7f8c8d;
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+
+        .experience-item ul {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+
+        .experience-item li {
+            margin-bottom: 8px;
+        }
+
+        .skills-section {
+            margin-top: 30px;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .skill-tag {
+            background: #3498db;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+        }
+
+        /* Language Tabs */
+        .language-tabs {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: linear-gradient(to bottom, #2c3e50 0%, #34495e 100%);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 0;
+        }
+
+        .tab-button {
+            background: transparent;
+            border: none;
+            color: rgba(255, 255, 255, 0.7);
+            padding: 16px 32px;
+            font-size: 1em;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+            position: relative;
+        }
+
+        .tab-button:hover {
+            background: rgba(255, 255, 255, 0.05);
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .tab-button.active {
+            color: white;
+            border-bottom-color: #3498db;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .tab-button:focus {
+            outline: 2px solid #3498db;
+            outline-offset: -2px;
+        }
+
+        /* Content visibility */
+        .hidden {
+            display: none !important;
+        }
+
+        @media (max-width: 600px) {
+            .language-tabs {
+                padding: 0;
+            }
+
+            .tab-button {
+                padding: 14px 24px;
+                font-size: 0.95em;
+                flex: 1;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            .profile-image {
+                width: 150px;
+                height: 150px;
+            }
+
+            .profile-section, .resume-section {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Language Tab Bar -->
+    <div class="language-tabs">
+        <button class="tab-button active" data-lang="de">Deutsch</button>
+        <button class="tab-button" data-lang="en">English</button>
+    </div>
+
+    <div class="container">
+        <!-- Profile Section -->
+        <div class="profile-section">
+            <img src="images/peter1.png" alt="Peter Buchmann" class="profile-image">
+            <h1>Peter Buchmann</h1>
+            <div class="contact-info">
+                <p>E-Mail: <a href="mailto:peter@buchmann.info">peter@buchmann.info</a></p>
+            </div>
+        </div>
+
+        <!-- German Content -->
+        <div class="resume-section" data-lang-content="de">
+            <h2>Über mich</h2>
+            {% for item in collections.aboutDe %}
+            <div style="margin-bottom: 30px;">
+                {{ item.templateContent }}
+            </div>
+            {% endfor %}
+
+            <h2>Berufserfahrung</h2>
+
+            {% for item in collections.experienceDe %}
+            <div class="experience-item">
+                <h3>{{ item.data.title }}</h3>
+                <p class="experience-meta">{{ item.data.company }} | {{ item.data.period }}</p>
+                {{ item.templateContent }}
+            </div>
+            {% endfor %}
+
+            <h2 style="margin-top: 30px;">Ausbildung</h2>
+            {% for item in collections.educationDe %}
+            <div class="experience-item">
+                <h3>{{ item.data.title }}</h3>
+                <p class="experience-meta">{{ item.data.institution }} | {{ item.data.year }}</p>
+                {{ item.templateContent }}
+            </div>
+            {% endfor %}
+        </div>
+
+        <!-- English Content -->
+        <div class="resume-section hidden" data-lang-content="en">
+            <h2>About Me</h2>
+            {% for item in collections.aboutEn %}
+            <div style="margin-bottom: 30px;">
+                {{ item.templateContent }}
+            </div>
+            {% endfor %}
+
+            <h2>Professional Experience</h2>
+
+            {% for item in collections.experienceEn %}
+            <div class="experience-item">
+                <h3>{{ item.data.title }}</h3>
+                <p class="experience-meta">{{ item.data.company }} | {{ item.data.period }}</p>
+                {{ item.templateContent }}
+            </div>
+            {% endfor %}
+
+            <h2 style="margin-top: 30px;">Education</h2>
+            {% for item in collections.educationEn %}
+            <div class="experience-item">
+                <h3>{{ item.data.title }}</h3>
+                <p class="experience-meta">{{ item.data.institution }} | {{ item.data.year }}</p>
+                {{ item.templateContent }}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <script>
+    (function() {
+        'use strict';
+
+        // Configuration
+        const DEFAULT_LANG = 'de';
+        const STORAGE_KEY = 'preferredLanguage';
+
+        // DOM elements
+        const tabButtons = document.querySelectorAll('.tab-button');
+        const contentSections = document.querySelectorAll('[data-lang-content]');
+
+        /**
+         * Switch to the specified language
+         * @param {string} lang - Language code ('de' or 'en')
+         */
+        function switchLanguage(lang) {
+            // Update buttons
+            tabButtons.forEach(button => {
+                const isActive = button.dataset.lang === lang;
+                button.classList.toggle('active', isActive);
+                button.setAttribute('aria-pressed', isActive);
+            });
+
+            // Update content visibility
+            contentSections.forEach(section => {
+                const shouldShow = section.dataset.langContent === lang;
+                section.classList.toggle('hidden', !shouldShow);
+            });
+
+            // Update HTML lang attribute for accessibility
+            document.documentElement.setAttribute('lang', lang);
+
+            // Save preference
+            try {
+                localStorage.setItem(STORAGE_KEY, lang);
+            } catch (e) {
+                console.warn('Could not save language preference:', e);
+            }
+        }
+
+        /**
+         * Get the initial language to display
+         * @returns {string} Language code
+         */
+        function getInitialLanguage() {
+            // Check localStorage first
+            try {
+                const saved = localStorage.getItem(STORAGE_KEY);
+                if (saved === 'de' || saved === 'en') {
+                    return saved;
+                }
+            } catch (e) {
+                console.warn('Could not access localStorage:', e);
+            }
+
+            // Check browser language
+            const browserLang = navigator.language || navigator.userLanguage;
+            if (browserLang && browserLang.startsWith('de')) {
+                return 'de';
+            }
+            if (browserLang && browserLang.startsWith('en')) {
+                return 'en';
+            }
+
+            // Default
+            return DEFAULT_LANG;
+        }
+
+        // Event listeners
+        tabButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                switchLanguage(this.dataset.lang);
+            });
+
+            // Keyboard accessibility
+            button.setAttribute('role', 'tab');
+            button.setAttribute('aria-pressed', 'false');
+        });
+
+        // Initialize on page load
+        const initialLang = getInitialLanguage();
+        switchLanguage(initialLang);
+
+        // Optional: Allow keyboard navigation (Left/Right arrows)
+        document.addEventListener('keydown', function(e) {
+            if (e.target.classList.contains('tab-button')) {
+                const buttons = Array.from(tabButtons);
+                const currentIndex = buttons.indexOf(e.target);
+
+                if (e.key === 'ArrowLeft' && currentIndex > 0) {
+                    e.preventDefault();
+                    buttons[currentIndex - 1].focus();
+                    buttons[currentIndex - 1].click();
+                } else if (e.key === 'ArrowRight' && currentIndex < buttons.length - 1) {
+                    e.preventDefault();
+                    buttons[currentIndex + 1].focus();
+                    buttons[currentIndex + 1].click();
+                }
+            }
+        });
+    })();
+    </script>
+</body>
+</html>

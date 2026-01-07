@@ -1,0 +1,16 @@
+{
+  "name": "aboutme",
+  "version": "1.0.0",
+  "description": "Peter Buchmann - About Me Page",
+  "main": "index.js",
+  "scripts": {
+    "build": "eleventy",
+    "serve": "eleventy --serve"
+  },
+  "keywords": [],
+  "author": "Peter Buchmann",
+  "license": "ISC",
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.2"
+  }
+}
